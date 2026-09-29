@@ -9,4 +9,69 @@
 </div></section>
 <section id="about" class="about"><div><span>02 / ABOUT</span><h2>Life is made<br>of small days.</h2></div><p>大きな出来事だけが人生じゃない。いつもの道、ふと浮かんだアイデア、初めて使った道具。そんな小さな「今日」を残していきます。</p></section>
 <section id="contact" class="newsletter"><p>WEEKLY LETTER</p><h2>いい一日を、あなたの受信箱へ。</h2><button>SUBSCRIBE</button></section></main>
-<footer><b>NAKAMOTO DAYS</b><span>© 2026 NAKAMOTO DAYS</span></footer></body></html>
+<footer><b>NAKAMOTO DAYS</b><span>© 2026 NAKAMOTO DAYS</span></footer>
+
+<button class="qr-fab" id="qrOpen" type="button" aria-label="このページのQRコードを表示">QR</button>
+<div class="qr-modal" id="qrModal" aria-hidden="true">
+  <div class="qr-backdrop" data-qr-close></div>
+  <section class="qr-panel" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
+    <button class="qr-close" type="button" data-qr-close aria-label="閉じる">×</button>
+    <p class="qr-kicker">SHARE THIS PAGE</p>
+    <h2 id="qrTitle">スマホで開く</h2>
+    <div id="qrcode" class="qr-code"></div>
+    <p class="qr-url" id="qrUrl"></p>
+    <button class="qr-copy" id="qrCopy" type="button">URLをコピー</button>
+  </section>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script>
+(() => {
+  const modal = document.getElementById('qrModal');
+  const open = document.getElementById('qrOpen');
+  const url = window.location.href.split('#')[0];
+  const qrUrl = document.getElementById('qrUrl');
+  const copy = document.getElementById('qrCopy');
+  let rendered = false;
+
+  function showQr() {
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('qr-lock');
+    if (!rendered) {
+      new QRCode(document.getElementById('qrcode'), {
+        text: url,
+        width: 220,
+        height: 220,
+        colorDark: '#161616',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.M
+      });
+      qrUrl.textContent = url;
+      rendered = true;
+    }
+  }
+
+  function hideQr() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('qr-lock');
+    open.focus();
+  }
+
+  open.addEventListener('click', showQr);
+  modal.querySelectorAll('[data-qr-close]').forEach(el => el.addEventListener('click', hideQr));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) hideQr();
+  });
+  copy.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(url);
+      copy.textContent = 'コピーしました';
+      setTimeout(() => copy.textContent = 'URLをコピー', 1600);
+    } catch {
+      qrUrl.select?.();
+    }
+  });
+})();
+</script>
+</body></html>
