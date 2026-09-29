@@ -1,27 +1,78 @@
-:root{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#16202a;background:#eef2f5}
+:root{
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:#e9f7ff;background:#071015;
+}
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh}
-.hero{padding:56px 7vw 42px;background:linear-gradient(135deg,#10212a,#173744);color:#fff}
-.hero div{max-width:960px;margin:auto}
-.eyebrow{margin:0 0 8px;font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.72}
-h1{font-size:clamp(2.4rem,7vw,5rem);line-height:1;margin:.1em 0}
-h2{margin:.2em 0;font-size:2rem}
-main{width:min(1120px,86vw);margin:30px auto 64px}
-.summary,.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.card,.project-card{background:#fff;border:1px solid #dbe4e9;border-radius:18px;box-shadow:0 8px 24px rgba(25,50,65,.06)}
-.metric{padding:20px}
-.metric span{display:block;font-size:.8rem;color:#61717c;margin-bottom:8px}
-.metric strong{font-size:1.1rem}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin:46px 0 18px}
-.section-head>p{max-width:560px;color:#60717d}
-.project-card{padding:22px;display:flex;flex-direction:column;gap:14px}
-.project-meta{display:flex;justify-content:space-between;gap:12px;color:#6d7d87;font-size:.85rem}
-.status{display:inline-flex;align-items:center;width:max-content;border-radius:999px;padding:5px 10px;background:#e9f8fb;color:#0e6874;font-size:.76rem;font-weight:800}
-.project-card h3{margin:0;font-size:1.25rem}
-.project-card p{margin:0;color:#5e6f79;line-height:1.65}
-.actions{display:flex;gap:10px;margin-top:auto;padding-top:8px}
-.actions a{text-decoration:none;border-radius:10px;padding:9px 12px;border:1px solid #cbd9df;color:#183544;font-weight:700;font-size:.88rem}
-.actions a.primary{background:#173744;color:#fff;border-color:#173744}
-.empty{grid-column:1/-1;padding:36px;text-align:center;background:#fff;border:1px dashed #b9c8d0;border-radius:18px;color:#687984}
-footer{text-align:center;padding:28px;color:#6d7d87;font-size:.85rem}
-@media(max-width:700px){.section-head{display:block}.hero{padding-top:42px}}
+body{
+  margin:0;min-height:100vh;
+  background:
+    radial-gradient(circle at 20% 0%,rgba(0,255,208,.13),transparent 35%),
+    radial-gradient(circle at 100% 20%,rgba(0,153,255,.1),transparent 30%),
+    #071015;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.24;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+.scanline{
+  position:fixed;left:0;right:0;top:-30%;height:30%;
+  background:linear-gradient(transparent,rgba(75,255,222,.025),transparent);
+  animation:scan 8s linear infinite;pointer-events:none;z-index:5;
+}
+@keyframes scan{to{top:110%}}
+.topbar{
+  width:min(1180px,90vw);margin:0 auto;padding:46px 0 30px;
+  display:flex;justify-content:space-between;gap:24px;align-items:end;
+  border-bottom:1px solid rgba(100,255,224,.2);
+}
+.eyebrow{margin:0 0 8px;font-size:.72rem;letter-spacing:.18em;font-weight:800;color:#67ffe0}
+h1{margin:0;font-size:clamp(2.3rem,7vw,5.2rem);line-height:.95;letter-spacing:.03em}
+.lead{color:#9eb6c1;max-width:720px;line-height:1.7}
+.system-panel{
+  min-width:180px;padding:14px 18px;border:1px solid rgba(103,255,224,.25);
+  background:rgba(4,19,26,.75);display:flex;gap:12px;align-items:center;
+  box-shadow:inset 0 0 20px rgba(0,255,208,.04),0 0 30px rgba(0,0,0,.35);
+}
+.system-panel small{display:block;color:#7b98a4;font-size:.65rem}
+.system-panel strong{color:#67ffe0}
+.lamp{width:10px;height:10px;border-radius:50%;background:#67ffe0;box-shadow:0 0 12px #67ffe0}
+main{width:min(1180px,90vw);margin:28px auto 64px}
+.hud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.hud-card,.project-card,.mission-panel{
+  border:1px solid rgba(103,255,224,.18);
+  background:linear-gradient(180deg,rgba(12,30,38,.92),rgba(5,16,22,.95));
+  box-shadow:inset 0 0 22px rgba(53,255,215,.025),0 12px 30px rgba(0,0,0,.28);
+}
+.hud-card{padding:18px 20px;position:relative;overflow:hidden}
+.hud-card:after{content:"";position:absolute;left:0;bottom:0;width:35%;height:2px;background:#67ffe0}
+.hud-card span{display:block;color:#71909b;font-size:.66rem;letter-spacing:.12em;margin-bottom:8px}
+.hud-card strong{font-size:1.08rem}
+.mission-panel{margin-top:24px;padding:22px}
+.panel-title{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:20px}
+.panel-title h2{margin:0;font-size:1.8rem}
+.panel-title>p{color:#819ca7;max-width:540px}
+code{color:#67ffe0}
+.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.project-card{padding:20px;position:relative;overflow:hidden;transition:.2s}
+.project-card:hover{transform:translateY(-3px);border-color:rgba(103,255,224,.55)}
+.project-card:before{
+  content:"";position:absolute;right:-36px;top:-36px;width:120px;height:120px;border:1px solid rgba(103,255,224,.09);transform:rotate(45deg)
+}
+.project-meta{display:flex;justify-content:space-between;color:#6f8b96;font-size:.75rem}
+.status{display:inline-block;margin:14px 0 10px;padding:5px 9px;border:1px solid #36d9bd;color:#67ffe0;font-size:.7rem;letter-spacing:.08em}
+.project-card h3{margin:0 0 10px;font-size:1.25rem}
+.project-card p{margin:0;color:#91a8b2;line-height:1.65;min-height:54px}
+.actions{display:flex;gap:10px;margin-top:18px}
+.actions a{
+  text-decoration:none;padding:9px 12px;font-size:.82rem;font-weight:800;
+  border:1px solid rgba(103,255,224,.35);color:#bfeee6;background:#0b1e26;
+}
+.actions a.primary{color:#061418;background:#67ffe0;border-color:#67ffe0}
+footer{text-align:center;color:#5f7984;padding:0 0 28px;font-size:.75rem}
+.empty{padding:32px;border:1px dashed rgba(103,255,224,.2);color:#7894a0}
+@media(max-width:760px){
+  .topbar,.panel-title{display:block}
+  .system-panel{margin-top:20px;width:max-content}
+  .hud-grid{grid-template-columns:1fr}
+}

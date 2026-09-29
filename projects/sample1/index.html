@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mini Quest Board</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game">
+    <header class="game-head">
+      <a href="../../">← LAB</a>
+      <div>
+        <p class="kicker">SAMPLE 1</p>
+        <h1>MINI QUEST BOARD</h1>
+      </div>
+      <div class="level">LV <strong id="level">1</strong></div>
+    </header>
+
+    <section class="statusbar">
+      <div>
+        <span>PLAYER</span>
+        <strong>KAZU</strong>
+      </div>
+      <div class="exp-wrap">
+        <div class="exp-label"><span>EXP</span><b id="expText">0 / 100</b></div>
+        <div class="bar"><i id="expBar"></i></div>
+      </div>
+      <div>
+        <span>CLEARED</span>
+        <strong id="clearCount">0</strong>
+      </div>
+    </section>
+
+    <section class="board">
+      <div class="board-title">
+        <div>
+          <p class="kicker">TODAY'S QUEST</p>
+          <h2>本日のクエスト</h2>
+        </div>
+        <button id="resetBtn">RESET</button>
+      </div>
+      <div id="questList" class="quest-list"></div>
+    </section>
+
+    <section class="log">
+      <span>SYSTEM LOG</span>
+      <p id="logText">クエストを選択してください。</p>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

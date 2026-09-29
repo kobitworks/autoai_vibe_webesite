@@ -4,11 +4,13 @@ script.onload=()=>{
   const projects=window.VIBE_PROJECTS||[];
   const count=document.getElementById("projectCount");
   const grid=document.getElementById("projectGrid");
-  count.textContent=projects.length+(projects.length===1?" project":" projects");
+  count.textContent=String(projects.length).padStart(2,"0");
+
   if(!projects.length){
-    grid.innerHTML='<div class="empty">最初の孫プロジェクトは、ここに追加されます。</div>';
+    grid.innerHTML='<div class="empty">NO PROJECT DATA</div>';
     return;
   }
+
   grid.innerHTML=projects.map(p=>`
     <article class="project-card">
       <div class="project-meta"><span>${p.id}</span><span>${p.updated||""}</span></div>
@@ -16,8 +18,8 @@ script.onload=()=>{
       <h3>${p.name}</h3>
       <p>${p.description||""}</p>
       <div class="actions">
-        ${p.demo?`<a class="primary" href="${p.demo}">PoCを見る</a>`:""}
-        ${p.github?`<a href="${p.github}">GitHub</a>`:""}
+        ${p.demo?`<a class="primary" href="${p.demo}">ENTER</a>`:""}
+        ${p.github?`<a href="${p.github}">SOURCE</a>`:""}
       </div>
     </article>`
   ).join("");
