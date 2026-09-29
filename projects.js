@@ -1,8 +1,8 @@
 window.VIBE_PROJECTS = [
   {
     id: "sample1",
-    name: "Sample 1：Mini Quest Board",
-    description: "クエストを達成してEXPを増やす、ゲームUI風のミニWebアプリ。",
+    name: "Sample 1：Corporate Website",
+    description: "大きなタイポグラフィと上質なモーションを使った、モダンな企業サイトのサンプル。",
     status: "PLAYABLE",
     updated: "2026-09-29",
     demo: "./projects/sample1/",
