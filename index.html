@@ -3,46 +3,87 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="AutoAI Vibe Coding Lab - バイブコーディングで作る小規模Webサイト／ミニWebアプリのPoCポータル">
   <title>【AutoAI】Vibe Coding Lab</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="scanline"></div>
-  <header class="topbar">
-    <div>
-      <p class="eyebrow">AUTOAI / CHILD PROJECT</p>
-      <h1>VIBE CODING LAB</h1>
-      <p class="lead">バイブコーディングで生み出す、小さなWebサイトとミニWebアプリの実験場。</p>
-    </div>
-    <div class="system-panel">
-      <span class="lamp"></span>
+  <header class="lab-header">
+    <div class="lab-header__inner">
       <div>
-        <small>SYSTEM STATUS</small>
-        <strong>ONLINE</strong>
+        <p class="eyebrow">AUTOAI / CHILD PROJECT P020</p>
+        <h1>Vibe Coding Lab</h1>
+        <p class="lead">小さく作って、触って、育てる。バイブコーディングの実例を集めるPoCラボ。</p>
+      </div>
+      <div class="system-chip" aria-label="Lab status">
+        <span class="system-chip__lamp" aria-hidden="true"></span>
+        <span>
+          <small>LAB STATUS</small>
+          <strong>ONLINE</strong>
+        </span>
       </div>
     </div>
   </header>
 
-  <main>
-    <section class="hud-grid">
-      <article class="hud-card"><span>ROOT</span><strong>AutoAI</strong></article>
-      <article class="hud-card"><span>PROJECT</span><strong>Vibe Coding Lab</strong></article>
-      <article class="hud-card"><span>CHILD APPS</span><strong id="projectCount">0</strong></article>
+  <main class="lab-main">
+    <section class="status-grid" aria-label="Lab summary">
+      <article class="status-card">
+        <span>ROOT</span>
+        <strong>AutoAI</strong>
+        <small>Parent project</small>
+      </article>
+      <article class="status-card">
+        <span>PROJECT</span>
+        <strong>P020</strong>
+        <small>Vibe Coding Lab</small>
+      </article>
+      <article class="status-card">
+        <span>GRANDCHILDREN</span>
+        <strong id="projectCount">00</strong>
+        <small>Registered projects</small>
+      </article>
+      <article class="status-card">
+        <span>LATEST UPDATE</span>
+        <strong id="latestUpdate">—</strong>
+        <small>Portal data</small>
+      </article>
     </section>
 
-    <section class="mission-panel">
-      <div class="panel-title">
+    <section class="mission-panel" aria-labelledby="projectsTitle">
+      <div class="panel-heading">
         <div>
           <p class="eyebrow">PROJECT SELECT</p>
-          <h2>孫プロジェクト一覧</h2>
+          <h2 id="projectsTitle">孫プロジェクト一覧</h2>
+          <p class="panel-description">各PoCは独立フォルダで管理し、ここから実行画面とGitHub正本へ移動できます。</p>
         </div>
-        <p>各サイトは <code>projects/プロジェクトID/</code> 配下に独立配置します。</p>
+        <div class="panel-rule">
+          <span>PATH RULE</span>
+          <code>projects/&lt;slug&gt;/</code>
+        </div>
       </div>
-      <div id="projectGrid" class="project-grid"></div>
+
+      <div class="project-tools" aria-label="Project filters">
+        <label class="search-box">
+          <span>SEARCH</span>
+          <input id="projectSearch" type="search" placeholder="ID・名称・概要・タグで検索" autocomplete="off">
+        </label>
+        <label class="filter-box">
+          <span>STATUS</span>
+          <select id="statusFilter">
+            <option value="">ALL</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="projectGrid" class="project-grid" aria-live="polite"></div>
     </section>
   </main>
 
-  <footer>© AutoAI Vibe Coding Lab / GitHub Pages</footer>
+  <footer>
+    <span>© AutoAI Vibe Coding Lab</span>
+    <span>GitHub Pages / lightweight HTML + CSS + JavaScript</span>
+  </footer>
+
   <script src="app.js"></script>
 </body>
 </html>
