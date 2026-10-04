@@ -3,194 +3,187 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="LUMINA WORKS - ブランドとデジタルの力で、企業の次の成長をつくる。">
-  <title>LUMINA WORKS | Corporate Website</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="STARTUP SEVEN - 7ターンで開発スタジオを成長させる軽量経営シミュレーションPoC">
+  <meta name="theme-color" content="#eef3f8">
+  <title>STARTUP SEVEN | Vibe Coding Lab</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="LUMINA WORKS home">
-      <span class="brand-mark">L</span>
-      <span>LUMINA WORKS</span>
-    </a>
-    <nav class="desktop-nav" aria-label="メインナビゲーション">
-      <a href="#about">ABOUT</a>
-      <a href="#services">SERVICES</a>
-      <a href="#works">WORKS</a>
-      <a href="#news">NEWS</a>
-    </nav>
-    <a class="contact-link" href="#contact">CONTACT <span>↗</span></a>
-    <button class="menu-button" id="menuButton" aria-label="メニューを開く" aria-expanded="false">
-      <span></span><span></span>
-    </button>
-  </header>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="identity">
+        <a class="lab-link" href="../../" aria-label="Vibe Coding Labへ戻る">VCL-G001</a>
+        <div>
+          <p class="overline">VIBE CODING LAB / MANAGEMENT SIM</p>
+          <h1>STARTUP <span>SEVEN</span></h1>
+        </div>
+      </div>
+      <div class="system-status" aria-label="システム状態">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>SIMULATION ONLINE</span>
+      </div>
+    </header>
 
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <a href="#about">ABOUT</a>
-    <a href="#services">SERVICES</a>
-    <a href="#works">WORKS</a>
-    <a href="#news">NEWS</a>
-    <a href="#contact">CONTACT</a>
+    <main>
+      <section class="hud" aria-label="現在のステータス">
+        <article class="hud-card">
+          <span class="hud-label">TURN</span>
+          <strong id="turnValue">1 / 7</strong>
+          <small>残り <b id="turnRemain">7</b> action</small>
+        </article>
+        <article class="hud-card" data-metric="money">
+          <span class="hud-label">FUNDS</span>
+          <strong><span id="moneyValue">100</span><em>万円</em></strong>
+          <small>運転資金</small>
+        </article>
+        <article class="hud-card" data-metric="trust">
+          <span class="hud-label">TRUST</span>
+          <strong id="trustValue">50</strong>
+          <small>顧客からの信頼</small>
+        </article>
+        <article class="hud-card" data-metric="progress">
+          <span class="hud-label">DEVELOPMENT</span>
+          <strong><span id="progressValue">0</span><em>%</em></strong>
+          <small>プロジェクト進捗</small>
+        </article>
+        <article class="hud-card" data-metric="energy">
+          <span class="hud-label">ENERGY</span>
+          <strong><span id="energyValue">100</span><em>%</em></strong>
+          <small>チーム体力</small>
+        </article>
+      </section>
+
+      <section class="mission-panel">
+        <div class="mission-copy">
+          <p class="eyebrow">MISSION 01</p>
+          <h2>7ターン以内に<br><span>プロジェクトを完成</span>させろ。</h2>
+          <p>営業・開発・広報・休息を選び、開発進捗100%を目指します。資金・信頼・体力は、次の一手を考えるための補助指標です。</p>
+        </div>
+        <div class="mission-progress">
+          <div class="progress-head">
+            <span>MISSION PROGRESS</span>
+            <b id="missionPercent">0%</b>
+          </div>
+          <div class="progress-track" role="progressbar" aria-label="開発進捗" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="missionBar">
+            <span id="missionFill"></span>
+          </div>
+          <div class="milestones" aria-hidden="true">
+            <span>START</span><span>25</span><span>50</span><span>75</span><span>CLEAR</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="game-grid">
+        <section class="panel command-panel" aria-labelledby="commandTitle">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">COMMAND</p>
+              <h2 id="commandTitle">次の行動を選択</h2>
+            </div>
+            <span class="key-hint">1—4</span>
+          </div>
+
+          <div class="command-grid">
+            <button class="command" type="button" data-action="sales">
+              <span class="command-key">01</span>
+              <span class="command-icon" aria-hidden="true">↗</span>
+              <strong>営業する</strong>
+              <small>資金 +25 / 信頼 +8 / 体力 -15</small>
+            </button>
+            <button class="command" type="button" data-action="develop">
+              <span class="command-key">02</span>
+              <span class="command-icon" aria-hidden="true">⌁</span>
+              <strong>開発する</strong>
+              <small>開発 +25 / 体力 -22</small>
+            </button>
+            <button class="command" type="button" data-action="promote">
+              <span class="command-key">03</span>
+              <span class="command-icon" aria-hidden="true">◎</span>
+              <strong>広報する</strong>
+              <small>資金 -10 / 信頼 +14 / 体力 -8</small>
+            </button>
+            <button class="command" type="button" data-action="rest">
+              <span class="command-key">04</span>
+              <span class="command-icon" aria-hidden="true">＋</span>
+              <strong>休息する</strong>
+              <small>体力 +28</small>
+            </button>
+          </div>
+        </section>
+
+        <aside class="side-stack">
+          <section class="panel resource-panel" aria-labelledby="resourceTitle">
+            <div class="panel-heading compact">
+              <div>
+                <p class="eyebrow">RESOURCE MONITOR</p>
+                <h2 id="resourceTitle">会社ステータス</h2>
+              </div>
+            </div>
+
+            <div class="resource">
+              <div><span>資金</span><b id="moneyGaugeText">100万円</b></div>
+              <div class="mini-track"><span id="moneyGauge"></span></div>
+            </div>
+            <div class="resource">
+              <div><span>信頼</span><b id="trustGaugeText">50</b></div>
+              <div class="mini-track"><span id="trustGauge"></span></div>
+            </div>
+            <div class="resource">
+              <div><span>開発</span><b id="progressGaugeText">0%</b></div>
+              <div class="mini-track"><span id="progressGauge"></span></div>
+            </div>
+            <div class="resource">
+              <div><span>体力</span><b id="energyGaugeText">100%</b></div>
+              <div class="mini-track"><span id="energyGauge"></span></div>
+            </div>
+          </section>
+
+          <section class="panel tactical-panel">
+            <p class="eyebrow">TACTICAL NOTE</p>
+            <p id="tacticalText">まずは開発を進めるか、営業で資金と信頼を確保するか。7ターンの配分が勝負です。</p>
+            <div class="clear-chip"><span>WIN CONDITION</span><b>開発 100%</b></div>
+          </section>
+        </aside>
+
+        <section class="panel log-panel" aria-labelledby="logTitle">
+          <div class="panel-heading compact">
+            <div>
+              <p class="eyebrow">EVENT LOG</p>
+              <h2 id="logTitle">オペレーション履歴</h2>
+            </div>
+            <span id="phaseBadge" class="phase-badge">TURN 1</span>
+          </div>
+          <ol id="eventLog" class="event-log" aria-live="polite">
+            <li>
+              <span class="log-turn">START</span>
+              <p>スタジオ運営を開始しました。開発進捗100%がクリア条件です。</p>
+            </li>
+          </ol>
+        </section>
+      </div>
+
+      <section class="footer-actions">
+        <button id="resetButton" class="secondary-button" type="button">↻ 最初からやり直す</button>
+        <a href="../../" class="secondary-button">← Vibe Coding Labへ戻る</a>
+      </section>
+    </main>
   </div>
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">DESIGNING THE NEXT STANDARD</p>
-        <h1>未来の「当たり前」を、<br><em>美しく実装する。</em></h1>
-        <p class="hero-lead">ブランド、テクノロジー、ビジネスを横断し、<br class="pc">企業の次の成長をデザインするクリエイティブパートナーです。</p>
-        <a class="text-link" href="#services">OUR SERVICES <span>→</span></a>
+  <div class="result-overlay" id="resultOverlay" hidden>
+    <section class="result-card" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+      <p class="eyebrow">SIMULATION RESULT</p>
+      <div class="result-mark" id="resultMark">CLEAR</div>
+      <h2 id="resultTitle">プロジェクト完成！</h2>
+      <p id="resultMessage"></p>
+      <div class="result-stats">
+        <div><span>FUNDS</span><b id="resultMoney"></b></div>
+        <div><span>TRUST</span><b id="resultTrust"></b></div>
+        <div><span>DEVELOPMENT</span><b id="resultProgress"></b></div>
+        <div><span>ENERGY</span><b id="resultEnergy"></b></div>
       </div>
-
-      <div class="hero-visual reveal">
-        <div class="orb orb-a"></div>
-        <div class="orb orb-b"></div>
-        <div class="glass-card card-main">
-          <span class="card-label">LUMINA / 2026</span>
-          <div class="signal"><i></i><i></i><i></i><i></i><i></i></div>
-          <strong>CREATE<br>NEW VALUE.</strong>
-        </div>
-        <div class="glass-card card-small">
-          <span>01</span>
-          <p>BRAND<br>EXPERIENCE</p>
-        </div>
-        <div class="hero-index">01 — 05</div>
-      </div>
-
-      <div class="scroll-label">SCROLL <span></span></div>
+      <button id="resultResetButton" class="primary-button" type="button">もう一度プレイ</button>
     </section>
-
-    <section class="statement" id="about">
-      <p class="section-kicker">WHO WE ARE</p>
-      <div class="statement-grid">
-        <h2 class="reveal">変化を、<br>前進する力に。</h2>
-        <div class="statement-copy reveal">
-          <p>市場も、テクノロジーも、顧客の価値観も変わり続けています。私たちは、複雑な課題をシンプルに捉え直し、事業・ブランド・デジタルをひとつにつなぎます。</p>
-          <p>見た目を整えるだけではなく、成果につながる体験を設計し、企業の持続的な成長を支えます。</p>
-          <a class="text-link dark" href="#works">VIEW OUR WORKS <span>→</span></a>
-        </div>
-      </div>
-      <div class="numbers">
-        <div><strong>120+</strong><span>PROJECTS</span></div>
-        <div><strong>18</strong><span>INDUSTRIES</span></div>
-        <div><strong>94%</strong><span>REPEAT RATE</span></div>
-      </div>
-    </section>
-
-    <section class="services" id="services">
-      <div class="section-head">
-        <div>
-          <p class="section-kicker light">WHAT WE DO</p>
-          <h2>Services</h2>
-        </div>
-        <p>構想から実装、運用まで。<br>一貫したチームで伴走します。</p>
-      </div>
-      <div class="service-list">
-        <article class="service-item reveal">
-          <span>01</span>
-          <div>
-            <h3>Brand Strategy</h3>
-            <p>ブランド戦略 / CI・VI / コピーライティング / ガイドライン設計</p>
-          </div>
-          <b>↗</b>
-        </article>
-        <article class="service-item reveal">
-          <span>02</span>
-          <div>
-            <h3>Digital Experience</h3>
-            <p>Webサイト / EC / UI・UX / プロトタイピング / デザインシステム</p>
-          </div>
-          <b>↗</b>
-        </article>
-        <article class="service-item reveal">
-          <span>03</span>
-          <div>
-            <h3>Business Design</h3>
-            <p>新規事業 / DX支援 / サービス設計 / 業務改善 / AI活用</p>
-          </div>
-          <b>↗</b>
-        </article>
-      </div>
-    </section>
-
-    <section class="works" id="works">
-      <div class="section-head works-head">
-        <div>
-          <p class="section-kicker">SELECTED PROJECTS</p>
-          <h2>Works</h2>
-        </div>
-        <a class="text-link dark" href="#contact">ALL PROJECTS <span>→</span></a>
-      </div>
-
-      <div class="work-grid">
-        <article class="work-card work-large reveal">
-          <div class="work-visual visual-one">
-            <div class="mock-logo">NØRTH</div>
-            <span class="mock-tag">REBRANDING / DIGITAL</span>
-          </div>
-          <div class="work-meta">
-            <div><h3>NORTH & CO.</h3><p>コーポレートブランド刷新</p></div>
-            <span>2026</span>
-          </div>
-        </article>
-        <article class="work-card reveal">
-          <div class="work-visual visual-two">
-            <div class="package">SOLA<br><small>SKIN LAB</small></div>
-          </div>
-          <div class="work-meta">
-            <div><h3>SOLA SKIN LAB</h3><p>D2Cブランド / EC</p></div>
-            <span>2026</span>
-          </div>
-        </article>
-        <article class="work-card reveal">
-          <div class="work-visual visual-three">
-            <div class="screen-ui">
-              <span>FINANCE / 04</span>
-              <strong>28.4</strong>
-              <i></i><i></i><i></i>
-            </div>
-          </div>
-          <div class="work-meta">
-            <div><h3>ARC FINANCE</h3><p>サービスUI / UXリニューアル</p></div>
-            <span>2025</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="news" id="news">
-      <div class="section-head news-head">
-        <div>
-          <p class="section-kicker">LATEST</p>
-          <h2>News</h2>
-        </div>
-      </div>
-      <div class="news-list">
-        <a href="#contact"><time>2026.09.18</time><span>INFO</span><p>コーポレートサイトをリニューアルしました。</p><b>→</b></a>
-        <a href="#contact"><time>2026.08.02</time><span>PROJECT</span><p>新規ブランド「SOLA SKIN LAB」のクリエイティブを担当しました。</p><b>→</b></a>
-        <a href="#contact"><time>2026.06.24</time><span>RECRUIT</span><p>デザイナー / エンジニアの採用情報を更新しました。</p><b>→</b></a>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <p class="section-kicker light">LET'S WORK TOGETHER</p>
-      <h2>次の景色を、<br><em>一緒につくろう。</em></h2>
-      <a href="mailto:hello@example.com">START A PROJECT <span>↗</span></a>
-      <div class="contact-orb"></div>
-    </section>
-  </main>
-
-  <footer>
-    <a class="brand footer-brand" href="#top"><span class="brand-mark">L</span><span>LUMINA WORKS</span></a>
-    <div class="footer-links">
-      <a href="#about">ABOUT</a><a href="#services">SERVICES</a><a href="#works">WORKS</a><a href="#news">NEWS</a>
-    </div>
-    <p>© 2026 LUMINA WORKS Inc.</p>
-    <a class="lab-back" href="../../">← VIBE CODING LAB</a>
-  </footer>
+  </div>
 
   <script src="app.js"></script>
 </body>
