@@ -1,11 +1,14 @@
 window.VIBE_PROJECTS = [
   {
-    id: "sample1",
-    name: "Sample 1：Corporate Website",
-    description: "大きなタイポグラフィと上質なモーションを使った、モダンな企業サイトのサンプル。",
-    status: "PLAYABLE",
-    updated: "2026-09-29",
-    demo: "./projects/sample1/",
-    github: "https://github.com/kobitworks/autoai_vibe_webesite/tree/main/projects/sample1"
+    id: "VCL-G001",
+    slug: "sample1",
+    name: "STARTUP SEVEN",
+    summary: "7ターンで開発進捗100%を目指す、軽量な経営シミュレーション風Web PoC。",
+    status: "poc",
+    createdAt: "2026-09-29",
+    updatedAt: "2026-10-04",
+    entryPath: "./projects/sample1/",
+    repoPath: "projects/sample1",
+    tags: ["game-ui", "simulation", "vanilla-js", "poc"]
   }
 ];
