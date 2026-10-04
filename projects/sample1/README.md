@@ -65,9 +65,10 @@ HTML / CSS / Vanilla JavaScriptだけで、ゲームらしい操作感を持つ�
 - サンプルデータのみ
 - 状態はブラウザへ永続保存しない
 - 音声、DB、ログイン、外部APIは未使用
-- ポータル一覧登録はVCL-006で実施
+- VCL-G001のポータル一覧登録は完了
 - GitHub Pages上の統合導線確認はVCL-007で実施
 
 ## 変更履歴
+- 2026-10-04: VCL-006でproject.jsonとルートprojects.jsを同期し、Vibe Coding LabポータルへVCL-G001を登録。
 - 2026-10-04: VCL-005を再開し、index.html / style.css / app.js をSTARTUP SEVEN実装へ置換。VCL-004正本に合わせCLEAR条件を開発進捗100%へ同期。
 - 2026-10-01: VCL-G001を付与し、README / project.jsonを追加。
