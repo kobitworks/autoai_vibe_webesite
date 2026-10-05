@@ -56,7 +56,7 @@ HTML / CSS / Vanilla JavaScriptだけで、ゲームらしい操作感を持つ�
 - https://kobitworks.github.io/autoai_vibe_webesite/projects/sample1/
 
 ## GitHub
-- https://github.com/kobitworks/autoai_vibe_webesite/tree/autoai/vcl-005-sample1-game/projects/sample1
+- https://github.com/kobitworks/autoai_vibe_webesite/tree/main/projects/sample1
 
 ## 現在のステータス
 - poc
