@@ -47,6 +47,8 @@
     }
   });
 
+  const appShell = document.querySelector(".app-shell");
+
   const state = { ...INITIAL };
   const logEntries = [];
 
@@ -220,6 +222,7 @@
     els.resultProgress.textContent = clamp(state.progress, 0, 100) + "%";
     els.resultEnergy.textContent = state.energy + "%";
     els.resultOverlay.hidden = false;
+    appShell.inert = true;
     els.resultResetButton.focus();
   }
 
@@ -227,6 +230,7 @@
     Object.assign(state, INITIAL);
     logEntries.length = 0;
     els.resultOverlay.hidden = true;
+    appShell.inert = false;
     render();
     document.querySelector(".command")?.focus();
   }
@@ -238,18 +242,23 @@
   els.resetButton.addEventListener("click", reset);
   els.resultResetButton.addEventListener("click", reset);
 
-  els.resultOverlay.addEventListener("click", (event) => {
-    if (event.target === els.resultOverlay) reset();
-  });
-
+  // 結果表示中は背景クリックやEscapeで暗黙にリセットしない。
+  // モーダル内で操作可能なのは「もう一度プレイ」ボタンのみ。
   document.addEventListener("keydown", (event) => {
+    if (!els.resultOverlay.hidden) {
+      if (event.key === "Tab") {
+        event.preventDefault();
+        els.resultResetButton.focus();
+      } else if (event.key === "Escape") {
+        event.preventDefault();
+      }
+      return;
+    }
+
     if (event.ctrlKey || event.metaKey || event.altKey) return;
     const keyMap = { "1": "sales", "2": "develop", "3": "promote", "4": "rest" };
     if (keyMap[event.key] && !state.finished) {
       play(keyMap[event.key]);
-    }
-    if (event.key === "Escape" && !els.resultOverlay.hidden) {
-      reset();
     }
   });
 
