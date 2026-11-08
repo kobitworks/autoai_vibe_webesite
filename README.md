@@ -20,7 +20,7 @@ AutoAI の子プロジェクトとして、バイブコーディングによる�
 トップページは孫プロジェクトの一覧画面です。
 
 ## Sample
-- `projects/sample1/` : Mini Quest Board
+- `projects/sample1/` : VCL-G001 STARTUP SEVEN（7ターン経営シミュレーションPoC）
 
 ## GitHub Pages
 https://kobitworks.github.io/autoai_vibe_webesite/
